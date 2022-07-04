@@ -1,0 +1,41 @@
+Cron expression parser
+
+This is a Ruby application which parses a given cron expression string and expands each field to show the times at which it will run.
+
+
+
+Pre-requisites:
+
+Ruby 2.3.6
+Ideally installed by default in most Macbooks. 
+
+If not installed already, first install RVM[Ruby version manager] from https://rvm.io/rvm/install
+
+and then install Ruby from https://rvm.io/rubies/installing [rvm install 2.3.6]
+
+
+
+How to run this application:
+
+Download this repository and go to the lib folder in Terminal. 
+
+Run the following: 
+
+~$ ruby parse_cron_string.rb "*/15 0 1,15 * 1-5 /usr/bin/find"
+
+This would produce the following output:
+
+minute        0 15 30 45 
+hour          0
+day of month  1 15
+month         1 2 3 4 5 6 7 8 9 10 11 12
+day of week   1 2 3 4 5
+command       /usr/bin/find
+
+
+
+Additional notes:
+
+This application handles all standard cron strings and commands as referenced here https://crontab.guru/
+
+Non-standard inputs will raise exceptions.
